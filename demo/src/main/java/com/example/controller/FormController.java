@@ -16,8 +16,8 @@ public class FormController {
 
     // ここから追記
     @PostMapping("/result")
-    public String processForm(@RequestParam("message") String message, Model model) {
-        model.addAttribute("displayMessage", message); // 入力された文字を画面に渡す
+    public String processForm(@RequestParam("message") String inputMessage, Model model) {
+        model.addAttribute("displayMessage", inputMessage); // 入力された文字を画面に渡す
         return "result"; // result.htmlを呼び出す
     }
 }
