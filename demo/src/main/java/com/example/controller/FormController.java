@@ -1,12 +1,23 @@
-package com.example.controller;
+package com.example.controller; // あなたのフォルダ構成に合わせています
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model; // 追記
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping; // 追記
+import org.springframework.web.bind.annotation.RequestParam; // 追記
 
 @Controller
 public class FormController {
+
     @GetMapping("/input")
     public String showForm() {
-        return "input"; // input.htmlを呼び出す
+        return "input";
+    }
+
+    // ここから追記
+    @PostMapping("/result")
+    public String processForm(@RequestParam("message") String message, Model model) {
+        model.addAttribute("displayMessage", message); // 入力された文字を画面に渡す
+        return "result"; // result.htmlを呼び出す
     }
 }

@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>入力画面</title>
+    <title>結果画面</title>
 </head>
 <body>
-<h1>文字を入力してください</h1>
-<form th:action="@{/result}" method="post">
-    <input type="text" name="message"/>
-    <button type="submit">送信</button>
-</form>
+<h1>入力された内容は以下の通りです</h1>
+<p th:text="${displayMessage}"></p>
+<a th:href="@{/input}">戻る</a>
 </body>
 </html>
